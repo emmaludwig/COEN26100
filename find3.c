@@ -1,23 +1,22 @@
 /* find3.c - Open file and count the number of '3' characters found 
-   @MarquetteU  - F. Frigo - Modified by Emma Ludwig
+   @MarquetteU  - F. Frigo - modified by Emma Ludwig
    COEN 2610
    To compile: cc -g find3.c -o find3
 */
 
 #include <stdio.h>
 #include <stdlib.h>
-#define MAX_STRING_LENGTH 80
-
+#define MAX_STRING_LEN 80
 int main(void)
 {
     FILE *fd;
-    char *filename[MAX_STRING_LEN];
+    char filename[MAX_STRING_LEN];
     int i, file_size;
     int three_count = 0;
     unsigned char value;
-   
-   printf("Enter file name to check: ");
-   scanf("%79s", filename);
+	
+	printf("Enter file name: ");
+	scanf("%79s", filename);
 
     /* Open file in binary mode for reading */
     fd = fopen(filename, "rb");
@@ -33,7 +32,7 @@ int main(void)
 
     /* Start at the begining of the file */ 
     fseek(fd, 0, SEEK_SET);
-    /* Test each byte to count 7's */
+    /* Test each byte to count 3's */
     for( i = 0; i< file_size; i++)
     {
        fread(&value, 1, 1, fd);
